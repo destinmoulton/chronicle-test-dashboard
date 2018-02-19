@@ -11,7 +11,8 @@
                             type="text"
                             v-model="server"
                             required
-                            placeholder="https://...">
+                            placeholder="https://..."
+                            >
                     </b-form-input>
                 </b-form-group>
                 <b-form-group 
@@ -22,10 +23,11 @@
                             type="text"
                             v-model="app"
                             required
-                            placeholder="">
+                            placeholder=""
+                            >
                     </b-form-input>
                 </b-form-group>
-                <b-button class="float-right" variant="primary">Initialize</b-button>
+                <b-button class="float-right" variant="primary" @click="save(server, app)">Initialize</b-button>
             </b-card>
         </b-col>
     </b-row>
@@ -34,14 +36,28 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 export default {
-    name: "setup",
+    name: "settings",
     components: {},
+    computed: mapGetters({
+        storeServer: "getServer",
+        storeApp: "getApp"
+    }),
     data: () => {
         return {
-            server: "",
-            app: ""
+            server: this.storeServer,
+            app: this.storeApp
         };
+    },
+    methods: {
+        save() {
+            this.$store.dispatch("saveSettings", {
+                server: this.server,
+                app: this.app
+            });
+        }
     }
 };
 </script>
