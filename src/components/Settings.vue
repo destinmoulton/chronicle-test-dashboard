@@ -41,22 +41,20 @@ import { mapGetters, mapActions } from "vuex";
 export default {
     name: "settings",
     components: {},
-    computed: mapGetters({
-        storeServer: "getServer",
-        storeApp: "getApp"
-    }),
-    data: () => {
+    data: function() {
         return {
-            server: this.storeServer,
-            app: this.storeApp
+            server: this.$store.getters.getServer,
+            app: this.$store.getters.getApp
         };
     },
     methods: {
         save() {
-            this.$store.dispatch("saveSettings", {
-                server: this.server,
-                app: this.app
-            });
+            if (this.server !== "" && this.app !== "") {
+                this.$store.dispatch("saveSettings", {
+                    server: this.server,
+                    app: this.app
+                });
+            }
         }
     }
 };
