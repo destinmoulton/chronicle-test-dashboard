@@ -12,7 +12,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Layout from "./components/Layout.vue";
-import Setup from "./components/Setup.vue";
+import Settings from "./components/Settings.vue";
 /*
     Extends Vue to use Vue Router
 */
@@ -26,8 +26,7 @@ export default new VueRouter({
     routes: [
         {
             path: "/",
-
-            component: Setup
+            component: Settings
 
             // children: [
             //     {
