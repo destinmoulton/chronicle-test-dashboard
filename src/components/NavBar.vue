@@ -8,8 +8,9 @@
                 <b-nav-item href="#" disabled>Disabled</b-nav-item>
             </b-navbar-nav>
         </b-collapse>
-        <div class="cht-navbar-settings">{{app}}</div>
-        <div class="cht-navbar-settings">{{server}}</div>
+
+        <div class="cht-navbar-settings" v-if=app>{{app}}</div>
+        <div class="cht-navbar-settings" v-if=server>{{server}}</div>
         
     </b-navbar>
 </template>
