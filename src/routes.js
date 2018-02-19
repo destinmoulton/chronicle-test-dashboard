@@ -26,15 +26,16 @@ export default new VueRouter({
     routes: [
         {
             path: "/",
-            name: "layout",
-            component: Layout,
-            children: [
-                {
-                    path: "setup",
-                    name: "setup",
-                    component: Setup
-                }
-            ]
+
+            component: Setup
+
+            // children: [
+            //     {
+            //         path: "setup",
+
+            //         component: Setup
+            //     }
+            // ]
         }
     ]
 });
