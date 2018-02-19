@@ -10,7 +10,11 @@ const getters = {
     getApp: state => state.app
 };
 
-const actions = {};
+const actions = {
+    saveSettings({ state, commit }, data) {
+        commit("setServerAndApp", data);
+    }
+};
 
 const mutations = {
     setServerAndApp(state, data) {
