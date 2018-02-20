@@ -26,10 +26,18 @@
             </b-card>
         </b-col>
     </b-row>
+    <b-row >
+        <b-col>
+            <b-card class="cht-dash-box">
+                <api-data></api-data>
+            </b-card>
+        </b-col>
+    </b-row>
 </b-container>
 </template>
 
 <script>
+import ApiData from "./Dashboard/ApiData";
 import AuthActions from "./Dashboard/AuthActions";
 import Console from "./Dashboard/Console";
 import WebsiteNavigation from "./Dashboard/WebsiteNavigation";
@@ -42,6 +50,7 @@ export default {
         }
     },
     components: {
+        "api-data": ApiData,
         "auth-actions": AuthActions,
         console: Console,
         "website-navigation": WebsiteNavigation
