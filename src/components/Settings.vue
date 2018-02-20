@@ -38,6 +38,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import ChronicleConsole from "../../../chronicle-console/index";
 
 export default {
     name: "settings",
@@ -57,6 +58,13 @@ export default {
                 });
 
                 this.$router.push("/dashboard");
+
+                // Initialize ChronicleConsole
+                ChronicleConsole.init({
+                    server: this.server,
+                    app: this.app,
+                    globalize: true
+                });
             }
         },
         clear() {
