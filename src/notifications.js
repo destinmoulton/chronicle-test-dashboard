@@ -1,6 +1,7 @@
 /**
  * Generated via: https://se-panfilov.github.io/vue-notifications/#/
  */
+import Vue from "vue";
 import VueNotifications from "vue-notifications";
 import VueToasted from "vue-toasted"; // https://github.com/shakee93/vue-toasted
 
