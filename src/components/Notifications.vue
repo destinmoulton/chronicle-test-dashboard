@@ -9,20 +9,40 @@ export default {
     created() {
         EventBus.$on(
             "notification",
-            function(packet = { type: "info", message: "" }) {
-                const message = `console.${packet.type}(${packet.message})`;
+            function(packet = { type: "info", message: "", data: {} }) {
+                const notificationMessage = `console.${packet.type}(${
+                    packet.message
+                })`;
+                const consoleMessage = packet.message;
+                const data = packet.data || {};
                 switch (packet.type) {
                     case "action":
-                        this.$toasted.info(message, NOTIFICATION_CONFIG);
+                        this.$toasted.info(
+                            notificationMessage,
+                            NOTIFICATION_CONFIG
+                        );
+                        console.action(consoleMessage, data);
                         break;
                     case "info":
-                        this.$toasted.info(message, NOTIFICATION_CONFIG);
+                        this.$toasted.info(
+                            notificationMessage,
+                            NOTIFICATION_CONFIG
+                        );
+                        console.info(consoleMessage, data);
                         break;
                     case "error":
-                        this.$toasted.error(message, NOTIFICATION_CONFIG);
+                        this.$toasted.error(
+                            notificationMessage,
+                            NOTIFICATION_CONFIG
+                        );
+                        console.error(consoleMessage, data);
                         break;
                     case "warn":
-                        this.$toasted.info(message, NOTIFICATION_CONFIG);
+                        this.$toasted.warn(
+                            notificationMessage,
+                            NOTIFICATION_CONFIG
+                        );
+                        console.warn(consoleMessage, data);
                         break;
                 }
             }.bind(this)
