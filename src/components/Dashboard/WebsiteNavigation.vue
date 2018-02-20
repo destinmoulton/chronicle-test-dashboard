@@ -15,7 +15,7 @@
 
 <script>
 import TEST_SITE from "../../constants/testsite.constants";
-import EventBus from "../../eventbus";
+import { EventBus } from "../../eventbus";
 
 export default {
     name: "website-navigation",

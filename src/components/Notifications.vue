@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import EventBus from "../eventbus";
+import { EventBus } from "../eventbus";
 import { NOTIFICATION_CONFIG } from "../constants/notifications.constants.js";
 export default {
     created() {
