@@ -20,12 +20,18 @@
                 <auth-actions></auth-actions>
             </b-card>
         </b-col>
+        <b-col>
+            <b-card class="cht-dash-box">
+                <console></console>
+            </b-card>
+        </b-col>
     </b-row>
 </b-container>
 </template>
 
 <script>
 import AuthActions from "./Dashboard/AuthActions";
+import Console from "./Dashboard/Console";
 import WebsiteNavigation from "./Dashboard/WebsiteNavigation";
 
 export default {
@@ -37,6 +43,7 @@ export default {
     },
     components: {
         "auth-actions": AuthActions,
+        console: Console,
         "website-navigation": WebsiteNavigation
     }
 };
