@@ -4,12 +4,12 @@
     <b-navbar toggleable="md" type="dark" variant="secondary">
         <b-navbar-brand >Acme Inc.</b-navbar-brand>
         <b-navbar-nav>
-            <b-nav-item v-for="page in pages" v-bind:key="page.id" v-on:click="changePage(page.id)">
+            <b-nav-item v-for="(page, index) in pages" v-bind:key="page.id" v-on:click="changePage(index)">
                 {{page.name}}
             </b-nav-item>
         </b-navbar-nav>
     </b-navbar>
-    <div>{{ content }}</div>
+    <div id="cht-dashboard-testsite-navigation-content">{{ content }}</div>
 </div>
 </template>
 
@@ -24,10 +24,16 @@ export default {
         };
     },
     methods: {
-        changePage(newPage) {
-            console.log(newPage);
+        changePage(pageIndex) {
+            this.content = TEST_SITE[pageIndex].content;
         }
     }
 };
 </script>
 
+<style>
+#cht-dashboard-testsite-navigation-content {
+    border: 4px solid #6c757d;
+    padding: 5px;
+}
+</style>
