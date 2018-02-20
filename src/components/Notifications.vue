@@ -44,6 +44,12 @@ export default {
                         );
                         console.warn(consoleMessage, data);
                         break;
+                    default:
+                        this.$toasted.info(
+                            notificationMessage,
+                            NOTIFICATION_CONFIG
+                        );
+                        break;
                 }
             }.bind(this)
         );
