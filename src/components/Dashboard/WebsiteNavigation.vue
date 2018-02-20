@@ -15,6 +15,8 @@
 
 <script>
 import TEST_SITE from "../../constants/testsite.constants";
+import EventBus from "../../eventbus";
+
 export default {
     name: "website-navigation",
     data: () => {
@@ -25,7 +27,12 @@ export default {
     },
     methods: {
         changePage(pageIndex) {
-            this.content = TEST_SITE[pageIndex].content;
+            const data = TEST_SITE[pageIndex];
+            this.content = data.content;
+            EventBus.$emit("notification", {
+                type: "action",
+                message: "nav:" + data.id
+            });
         }
     }
 };
