@@ -23,13 +23,6 @@ export default {
                         );
                         console.action(consoleMessage, data);
                         break;
-                    case "info":
-                        this.$toasted.info(
-                            notificationMessage,
-                            NOTIFICATION_CONFIG
-                        );
-                        console.info(consoleMessage, data);
-                        break;
                     case "error":
                         this.$toasted.error(
                             notificationMessage,
@@ -37,8 +30,15 @@ export default {
                         );
                         console.error(consoleMessage, data);
                         break;
+                    case "info":
+                        this.$toasted.info(
+                            notificationMessage,
+                            NOTIFICATION_CONFIG
+                        );
+                        console.info(consoleMessage, data);
+                        break;
                     case "warn":
-                        this.$toasted.warn(
+                        this.$toasted.info(
                             notificationMessage,
                             NOTIFICATION_CONFIG
                         );
