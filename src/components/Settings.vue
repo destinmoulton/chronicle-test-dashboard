@@ -27,6 +27,7 @@
                             >
                     </b-form-input>
                 </b-form-group>
+                <b-button class="float-left" variant="info" @click="clear()">Clear Settings</b-button>
                 <b-button class="float-right" variant="primary" @click="save(server, app)">Initialize</b-button>
             </b-card>
         </b-col>
@@ -55,6 +56,11 @@ export default {
                     app: this.app
                 });
             }
+        },
+        clear() {
+            this.server = "";
+            this.app = "";
+            this.$store.dispatch("clearSettings");
         }
     }
 };
