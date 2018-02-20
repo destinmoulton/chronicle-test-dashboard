@@ -35,7 +35,7 @@ div.cht-navbar-settings {
     font-weight: bold;
     border: 1px solid white;
     border-radius: 4px;
-    padding: 5px;
+    padding: 2px 5px 2px 5px;
     margin-left: 5px;
 }
 </style>
