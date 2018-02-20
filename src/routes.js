@@ -13,6 +13,8 @@ import VueRouter from "vue-router";
 
 import Layout from "./components/Layout.vue";
 import Settings from "./components/Settings.vue";
+import Dashboard from "./components/Dashboard.vue";
+
 /*
     Extends Vue to use Vue Router
 */
@@ -27,14 +29,10 @@ export default new VueRouter({
         {
             path: "/",
             component: Settings
-
-            // children: [
-            //     {
-            //         path: "setup",
-
-            //         component: Setup
-            //     }
-            // ]
+        },
+        {
+            path: "/dashboard",
+            component: Dashboard
         }
     ]
 });
