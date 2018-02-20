@@ -30,6 +30,11 @@ import WebsiteNavigation from "./Dashboard/WebsiteNavigation";
 
 export default {
     name: "dashboard",
+    created() {
+        if (!this.$store.getters.getIsChronicleInitialized) {
+            this.$router.push("/");
+        }
+    },
     components: {
         "auth-actions": AuthActions,
         "website-navigation": WebsiteNavigation
