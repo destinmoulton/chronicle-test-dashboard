@@ -17,9 +17,7 @@
     <b-row >
         <b-col>
             <b-card class="cht-dash-box">
-                <h3>Auth Actions</h3>
-                <b-button>Login ("auth:login")</b-button>
-                <b-button>Logout ("auth:logout")</b-button>
+                <auth-actions></auth-actions>
             </b-card>
         </b-col>
     </b-row>
@@ -27,10 +25,13 @@
 </template>
 
 <script>
+import AuthActions from "./Dashboard/AuthActions";
 import WebsiteNavigation from "./Dashboard/WebsiteNavigation";
+
 export default {
     name: "dashboard",
     components: {
+        "auth-actions": AuthActions,
         "website-navigation": WebsiteNavigation
     }
 };
