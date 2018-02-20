@@ -13,6 +13,10 @@ const getters = {
 const actions = {
     saveSettings({ state, commit }, data) {
         commit("setServerAndApp", data);
+    },
+
+    clearSettings({ commit }, data) {
+        commit("clearServerAndAp");
     }
 };
 
@@ -23,6 +27,13 @@ const mutations = {
 
         localStorage.setItem("server", data.server);
         localStorage.setItem("app", data.app);
+    },
+
+    clearServerAndAp() {
+        state.server = "";
+        state.app = "";
+        localStorage.removeItem("server");
+        localStorage.removeItem("app");
     }
 };
 
