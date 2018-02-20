@@ -55,6 +55,8 @@ export default {
                     server: this.server,
                     app: this.app
                 });
+
+                this.$router.push("/dashboard");
             }
         },
         clear() {
