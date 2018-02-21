@@ -6,10 +6,13 @@
             <b-col>
                 <template v-if="apiData.swapi.length > 0">
                 <b-card no-body >
-                    <b-tabs card >
+                    <b-tabs pills card >
                         <b-tab v-for="(swapi, sectionIndex) in apiData.swapi" v-bind:key="swapi.name" v-bind:title="swapi.name" >
                         <ul>
-                            <li v-for="(item, itemIndex) in swapi.data" v-bind:key="item.name"><b-button size="sm" v-on:click="activateData('swapi', sectionIndex, itemIndex)">&gt;</b-button>{{item.name}}</li>
+                            <li v-for="(item, itemIndex) in swapi.data" v-bind:key="item.name"
+                                v-on:click="activateData('swapi', sectionIndex, itemIndex)">
+                                {{item.name}}
+                            </li>
                         </ul>
                         </b-tab>
                     </b-tabs>
@@ -17,7 +20,9 @@
                 </template>
             </b-col>
             <b-col>
-                <textarea disabled v-model="activeData"></textarea>
+                <b-card>
+                    <vue-json-pretty v-bind:data="activeData"></vue-json-pretty>
+                </b-card>
             </b-col>
         </b-row>
     </b-container>
@@ -26,7 +31,11 @@
 
 <script>
 import { mapGetters } from "vuex";
+import VueJsonPretty from "vue-json-pretty";
 export default {
+    components: {
+        VueJsonPretty
+    },
     created() {
         this.$store.dispatch("downloadAPIData");
     },
@@ -40,13 +49,17 @@ export default {
     }),
     methods: {
         activateData(type, sectionIndex, elementIndex) {
-            this.activeData = JSON.stringify(
-                this.$store.getters.getAPIData[type][sectionIndex].data[
-                    elementIndex
-                ]
-            );
+            this.activeData = this.$store.getters.getAPIData[type][
+                sectionIndex
+            ].data[elementIndex];
             console.log(this.activeData);
         }
     }
 };
 </script>
+
+<style>
+#cht-dashboard-data-display {
+    height: 100%;
+}
+</style>
