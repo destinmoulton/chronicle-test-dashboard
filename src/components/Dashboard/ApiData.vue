@@ -11,12 +11,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-    data: function() {
-        return {
-            apiData: this.$store.getters.getAPIData
-        };
-    },
+    computed: mapGetters({
+        apiData: "getAPIData"
+    }),
+
     created() {
         this.$store.dispatch("downloadAPIData");
     }
