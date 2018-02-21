@@ -42,7 +42,9 @@ module.exports = {
         ]
     },
     externals: {
-        lodash: "_"
+        lodash: "_",
+        vuex: "Vuex",
+        vue: "Vue"
     },
     resolve: {
         alias: {
