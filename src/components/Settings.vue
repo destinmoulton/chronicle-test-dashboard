@@ -63,7 +63,8 @@ export default {
                 ChronicleConsole.init({
                     server: this.server,
                     app: this.app,
-                    globalize: true
+                    globalize: true,
+                    toConsole: true
                 });
             }
         },
