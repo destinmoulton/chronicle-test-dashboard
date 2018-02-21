@@ -28,6 +28,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-vue": "^4.2.2",
     "file-loader": "^1.1.4",
+    "lodash": "^4.17.5",
     "vue-loader": "^13.0.5",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.4.4",
