@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { getAllSwapiData } from "../api/swapi";
 
 const state = {
@@ -13,14 +14,14 @@ const getters = {
 const actions = {
     downloadAPIData({ commit }) {
         getAllSwapiData().then(data => {
-            commit("setAPIData", "swapi", data);
+            commit("setAPIData", { apiName: "swapi", data });
         });
     }
 };
 
 const mutations = {
-    setAPIData(state, apiName, data) {
-        state[apiName] = data;
+    setAPIData(state, { apiName, data }) {
+        state.data[apiName] = _.clone(data);
     }
 };
 
