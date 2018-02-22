@@ -61,21 +61,7 @@
 import { mapGetters, mapActions } from "vuex";
 import ChronicleConsole from "../../../chronicle-console/index";
 
-const METHODS_OPTIONS = [
-    "action",
-    "assert",
-    "error",
-    "group",
-    "groupCollapsed",
-    "groupEnd",
-    "info",
-    "log",
-    "table",
-    "time",
-    "timeEnd",
-    "trace",
-    "warn"
-];
+import METHODS from "../constants/methods.constants";
 
 export default {
     name: "settings",
@@ -85,7 +71,7 @@ export default {
             server: this.$store.getters.getServer,
             app: this.$store.getters.getApp,
             selectedMethodsToLog: this.$store.getters.getMethodsToLog,
-            methodsAvailableToLog: METHODS_OPTIONS
+            methodsAvailableToLog: METHODS
         };
     },
     methods: {
