@@ -1,20 +1,24 @@
+const localData = localStorage.getItem("settings");
+
 // Initial state
 const state = {
-    server: localStorage.getItem("server") || "",
-    app: localStorage.getItem("app") || "",
-    isChronicleInitialized: false
+    server: localData.server || "",
+    app: localData.app || "",
+    isChronicleInitialized: false,
+    methodsToLog: localData.methodsToLog || ["action", "error", "warn", "trace"]
 };
 
 // getters
 const getters = {
     getServer: state => state.server,
     getApp: state => state.app,
-    getIsChronicleInitialized: state => state.isChronicleInitialized
+    getIsChronicleInitialized: state => state.isChronicleInitialized,
+    getMethodsToLog: state => state.methodsToLog
 };
 
 const actions = {
     saveSettings({ state, commit }, data) {
-        commit("setServerAndApp", data);
+        commit("mutateSettings", data);
     },
 
     clearSettings({ commit }, data) {
@@ -23,13 +27,14 @@ const actions = {
 };
 
 const mutations = {
-    setServerAndApp(state, data) {
+    mutateSettings(state, data) {
         state.server = data.server;
         state.app = data.app;
+        state.methodsToLog = data.methodsToLog;
+
         state.isChronicleInitialized = true;
 
-        localStorage.setItem("server", data.server);
-        localStorage.setItem("app", data.app);
+        localStorage.setItem("settings", state);
     },
 
     clearServerAndAp() {
