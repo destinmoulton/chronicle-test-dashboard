@@ -62,6 +62,7 @@ import { mapGetters, mapActions } from "vuex";
 import ChronicleConsole from "../../../chronicle-console/index";
 
 const METHODS_OPTIONS = [
+    "action",
     "assert",
     "error",
     "group",
