@@ -6,7 +6,7 @@
             <b-col>
                 <template v-if="apiData.swapi.length > 0">
                 <b-card no-body >
-                    <b-tabs pills card >
+                    <b-tabs pills card vertical>
                         <b-tab v-for="(swapi, sectionIndex) in apiData.swapi" v-bind:key="swapi.name" v-bind:title="swapi.name" >
                         <ul class="cht-list">
                             <li v-for="(item, itemIndex) in swapi.data" v-bind:key="item.name"
@@ -52,7 +52,6 @@ export default {
             this.activeData = this.$store.getters.getAPIData[type][
                 sectionIndex
             ].data[elementIndex];
-            console.log(this.activeData);
         }
     }
 };
