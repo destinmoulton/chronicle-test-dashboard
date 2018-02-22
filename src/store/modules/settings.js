@@ -1,12 +1,30 @@
-const localData = localStorage.getItem("settings");
+import _ from "lodash";
+
+const storageString = localStorage.getItem("settings");
+const storedData = storageString !== null ? JSON.parse(storageString) : null;
+
+const INITIAL_STATE = {
+    server: "",
+    app: "",
+    isChronicleInitialized: false,
+    methodsToLog: ["action", "error", "warn", "trace"]
+};
+
+const prepareState = (storage, initialState) => {
+    let state = { ...initialState };
+
+    if (storage === null) return state;
+
+    _.keys(initialState).forEach(key => {
+        if (_.has(storage, key)) {
+            state[key] = storage[key];
+        }
+    });
+    return state;
+};
 
 // Initial state
-const state = {
-    server: localData.server || "",
-    app: localData.app || "",
-    isChronicleInitialized: false,
-    methodsToLog: localData.methodsToLog || ["action", "error", "warn", "trace"]
-};
+const state = prepareState(storedData, INITIAL_STATE);
 
 // getters
 const getters = {
@@ -22,26 +40,27 @@ const actions = {
     },
 
     clearSettings({ commit }, data) {
-        commit("clearServerAndAp");
+        commit("resetSettings");
     }
 };
 
 const mutations = {
     mutateSettings(state, data) {
-        state.server = data.server;
-        state.app = data.app;
-        state.methodsToLog = data.methodsToLog;
+        state.server = _.clone(data.server);
+        state.app = _.clone(data.app);
+        state.methodsToLog = _.clone(data.methodsToLog);
 
         state.isChronicleInitialized = true;
 
-        localStorage.setItem("settings", state);
+        localStorage.setItem("settings", JSON.stringify(state));
     },
 
-    clearServerAndAp() {
-        state.server = "";
-        state.app = "";
-        localStorage.removeItem("server");
-        localStorage.removeItem("app");
+    resetSettings() {
+        _.keys(INITIAL_STATE).forEach(key => {
+            state[key] = INITIAL_STATE[key];
+        });
+
+        localStorage.removeItem("settings");
     }
 };
 
