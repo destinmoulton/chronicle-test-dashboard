@@ -1,7 +1,8 @@
 <template>
+<div>
 <b-container fluid id="cht-form-container">
     <b-row>
-        <b-col cols="6" offset="3">
+        <b-col cols="6">
             <b-card>
                 <b-form-group 
                         label="Server API URL:"
@@ -27,18 +28,53 @@
                             >
                     </b-form-input>
                 </b-form-group>
-                <b-button class="float-left" variant="info" @click="clear()">Clear Settings</b-button>
-                <b-button class="float-right" variant="primary" @click="save(server, app)">Initialize</b-button>
+            </b-card>
+        </b-col>
+        <b-col cols="6">
+            <b-card>
+                <b-form-group label="Methods to Log to API">
+                    <b-form-checkbox-group 
+                        stacked
+                        v-model="selectedMethodsToLog"
+                        v-bind:options="methodsAvailableToLog"
+                    ></b-form-checkbox-group>
+                </b-form-group>
             </b-card>
         </b-col>
     </b-row>
+    <b-row>
+        <b-col>
+            
+        </b-col>
+    </b-row>
 </b-container>
-
+<b-navbar fixed="bottom">
+    <b-card id="cht-button-card">
+        <b-button class="float-left" variant="info" @click="clear()">Clear Settings</b-button>
+        <b-button class="float-right" variant="primary" @click="save(server, app)">Initialize</b-button>
+    </b-card>
+</b-navbar>
+</div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 import ChronicleConsole from "../../../chronicle-console/index";
+
+const METHODS_OPTIONS = [
+    "assert",
+    "error",
+    "group",
+    "groupCollapsed",
+    "groupEnd",
+    "info",
+    "log",
+    "table",
+    "time",
+    "timeEnd",
+    "trace",
+    "warn"
+];
 
 export default {
     name: "settings",
@@ -46,7 +82,9 @@ export default {
     data: function() {
         return {
             server: this.$store.getters.getServer,
-            app: this.$store.getters.getApp
+            app: this.$store.getters.getApp,
+            selectedMethodsToLog: this.$store.getters.getMethodsToLog,
+            methodsAvailableToLog: METHODS_OPTIONS
         };
     },
     methods: {
@@ -80,5 +118,9 @@ export default {
 <style>
 #cht-form-container {
     margin-top: 10px;
+}
+
+#cht-button-card {
+    width: 100%;
 }
 </style>
