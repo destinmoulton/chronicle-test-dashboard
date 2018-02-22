@@ -3,7 +3,7 @@
     <b-row >
         <b-col>
             <b-card class="cht-dash-box">
-                <h3>Dashboard</h3>
+                <active-methods></active-methods>
             </b-card>
         </b-col>
     </b-row>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import ActiveMethods from "./Dashboard/ActiveMethods";
 import ApiData from "./Dashboard/ApiData";
 import AuthActions from "./Dashboard/AuthActions";
 import Console from "./Dashboard/Console";
@@ -50,6 +51,7 @@ export default {
         }
     },
     components: {
+        "active-methods": ActiveMethods,
         "api-data": ApiData,
         "auth-actions": AuthActions,
         console: Console,
