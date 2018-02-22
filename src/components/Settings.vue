@@ -89,7 +89,8 @@ export default {
                     server: this.server,
                     app: this.app,
                     globalize: true,
-                    toConsole: true
+                    toConsole: true,
+                    methodsToLog: this.selectedMethodsToLog
                 });
             }
         },
