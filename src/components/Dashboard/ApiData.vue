@@ -8,7 +8,7 @@
                 <b-card no-body >
                     <b-tabs pills card >
                         <b-tab v-for="(swapi, sectionIndex) in apiData.swapi" v-bind:key="swapi.name" v-bind:title="swapi.name" >
-                        <ul>
+                        <ul class="cht-list">
                             <li v-for="(item, itemIndex) in swapi.data" v-bind:key="item.name"
                                 v-on:click="activateData('swapi', sectionIndex, itemIndex)">
                                 {{item.name}}
@@ -61,5 +61,15 @@ export default {
 <style>
 #cht-dashboard-data-display {
     height: 100%;
+}
+
+ul.cht-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.cht-list > li {
+    cursor: pointer;
+    color: #007bff;
 }
 </style>
