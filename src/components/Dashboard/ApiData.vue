@@ -21,7 +21,20 @@
                 </template>
             </b-col>
             <b-col>
-                <b-card>
+                <b-card v-if="activeData.hasOwnProperty('name')">
+                    <b-form-group 
+                        label="Log Message:"
+                        label-for="input-log-message"
+                        >
+                    <b-form-input id="input-log-message"
+                            type="text"
+                            v-model="message"
+                            required
+                            placeholder=""
+                            >
+                    </b-form-input>
+                    </b-form-group>
+                    <label>Data to Log</label>
                     <vue-json-pretty v-bind:data="activeData"></vue-json-pretty>
                 </b-card>
             </b-col>
@@ -31,6 +44,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import { mapGetters } from "vuex";
 import VueJsonPretty from "vue-json-pretty";
 export default {
@@ -42,7 +56,8 @@ export default {
     },
     data: function() {
         return {
-            activeData: ""
+            activeData: "",
+            message: ""
         };
     },
     computed: mapGetters({
@@ -50,9 +65,16 @@ export default {
     }),
     methods: {
         activateData(type, sectionIndex, elementIndex) {
-            this.activeData = this.$store.getters.getAPIData[type][
+            const dataForSection = this.$store.getters.getAPIData[type][
                 sectionIndex
-            ].data[elementIndex];
+            ];
+
+            this.activeData = dataForSection.data[elementIndex];
+
+            let name = this.activeData.name.toLowerCase();
+            name = name.replace(/[\s-]/g, ".");
+            name = name.replace(/[^a-z0-9.]/g, "");
+            this.message = `click:${dataForSection.name}:${name}`;
         }
     }
 };
