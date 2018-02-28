@@ -66,6 +66,8 @@
 <script>
 import _ from "lodash";
 import { mapGetters } from "vuex";
+import { EventBus } from "../../eventbus";
+
 import VueJsonPretty from "vue-json-pretty";
 export default {
     components: {
@@ -99,7 +101,11 @@ export default {
             this.message = `click:${dataForSection.name}:${name}`;
         },
         clickLogMethod(method) {
-            console[method](this.message, this.activeData);
+            EventBus.$emit("notification", {
+                type: method,
+                message: this.message,
+                data: this.activeData
+            });
         }
     }
 };
