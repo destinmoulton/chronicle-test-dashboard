@@ -79,7 +79,8 @@ export default {
             if (this.server !== "" && this.app !== "") {
                 this.$store.dispatch("saveSettings", {
                     server: this.server,
-                    app: this.app
+                    app: this.app,
+                    methodsToLog: this.selectedMethodsToLog
                 });
 
                 this.$router.push("/dashboard");
