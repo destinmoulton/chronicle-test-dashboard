@@ -52,6 +52,7 @@
                         >
                     <b-button 
                         v-bind:disabled="!activeData.hasOwnProperty('name')"
+                        v-on:click="clickLogMethod(method)"
                         >{{method}}()</b-button>
                         </li>
                     </ul>
@@ -96,6 +97,9 @@ export default {
             name = name.replace(/[\s-]/g, ".");
             name = name.replace(/[^a-z0-9.]/g, "");
             this.message = `click:${dataForSection.name}:${name}`;
+        },
+        clickLogMethod(method) {
+            console[method](this.message, this.activeData);
         }
     }
 };
