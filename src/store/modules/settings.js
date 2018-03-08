@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     server: "",
     app: "",
     isChronicleInitialized: false,
-    methodsToLog: ["action", "error", "warn"]
+    methodsToLog: ["action", "assert", "error", "warn"]
 };
 
 const prepareState = (storage, initialState) => {
