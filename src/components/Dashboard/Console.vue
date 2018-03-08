@@ -4,6 +4,7 @@
     <b-button v-on:click="info()" variant="primary">Info</b-button>
     <b-button v-on:click="warn()" variant="warning">Warn</b-button>
     <b-button v-on:click="error()" variant="danger">Error</b-button>
+    <b-button v-on:click="assert()" variant="danger">Assert</b-button>
 </div>
 </template>
 
@@ -27,6 +28,12 @@ export default {
             EventBus.$emit("notification", {
                 type: "warn",
                 message: "WARN :: Warn button pressed."
+            });
+        },
+        assert() {
+            EventBus.$emit("notification", {
+                type: "assert",
+                message: "Assertion failed."
             });
         }
     }
