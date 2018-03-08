@@ -13,6 +13,13 @@
         <b-button v-on:click="groupCollapsed()" variant="success">.groupCollapsed()</b-button>
         <b-button v-on:click="groupEnd()" variant="warning">.groupEnd()</b-button>
     </fieldset>
+
+    <br/><br/>
+    <fieldset>
+        <legend>Time</legend>
+        <b-button v-on:click="time()" variant="success">.time()</b-button>
+        <b-button v-on:click="timeEnd()" variant="warning">.timeEnd()</b-button>
+    </fieldset>
 </div>
 </template>
 
@@ -57,6 +64,18 @@ export default {
         groupEnd() {
             EventBus.$emit("notification", {
                 type: "groupEnd"
+            });
+        },
+        time() {
+            EventBus.$emit("notification", {
+                type: "time",
+                message: "Timer"
+            });
+        },
+        timeEnd() {
+            EventBus.$emit("notification", {
+                type: "timeEnd",
+                message: "Timer"
             });
         }
     }

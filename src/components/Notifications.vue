@@ -58,6 +58,20 @@ export default {
                         );
                         console.groupEnd();
                         break;
+                    case "time":
+                        this.$toasted.info(
+                            ".time() called",
+                            NOTIFICATION_CONFIG
+                        );
+                        console.time(consoleMessage);
+                        break;
+                    case "timeEnd":
+                        this.$toasted.info(
+                            ".timeEnd() called",
+                            NOTIFICATION_CONFIG
+                        );
+                        console.timeEnd(consoleMessage);
+                        break;
                     case "info":
                         this.$toasted.info(
                             notificationMessage,
