@@ -4,10 +4,15 @@
     <b-button v-on:click="info()" variant="primary">.info()</b-button>
     <b-button v-on:click="warn()" variant="warning">.warn()</b-button>
     <b-button v-on:click="error()" variant="danger">.error()</b-button>
-    <b-button v-on:click="assert()" variant="danger">.assert()</b-button><br/>
-    <b-button v-on:click="group()" variant="success">.group()</b-button>
-    <b-button v-on:click="groupCollapsed()" variant="success">.groupCollapsed()</b-button>
-    <b-button v-on:click="groupEnd()" variant="warning">.groupEnd()</b-button>
+    <b-button v-on:click="assert()" variant="danger">.assert()</b-button>
+
+    <br/><br/>
+    <fieldset>
+        <legend>Groups</legend>
+        <b-button v-on:click="group()" variant="success">.group()</b-button>
+        <b-button v-on:click="groupCollapsed()" variant="success">.groupCollapsed()</b-button>
+        <b-button v-on:click="groupEnd()" variant="warning">.groupEnd()</b-button>
+    </fieldset>
 </div>
 </template>
 
