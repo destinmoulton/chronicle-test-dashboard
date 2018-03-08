@@ -1,10 +1,13 @@
 <template>
 <div>
     <h4>Console Tests</h4>
-    <b-button v-on:click="info()" variant="primary">Info</b-button>
-    <b-button v-on:click="warn()" variant="warning">Warn</b-button>
-    <b-button v-on:click="error()" variant="danger">Error</b-button>
-    <b-button v-on:click="assert()" variant="danger">Assert</b-button>
+    <b-button v-on:click="info()" variant="primary">.info()</b-button>
+    <b-button v-on:click="warn()" variant="warning">.warn()</b-button>
+    <b-button v-on:click="error()" variant="danger">.error()</b-button>
+    <b-button v-on:click="assert()" variant="danger">.assert()</b-button><br/>
+    <b-button v-on:click="group()" variant="success">.group()</b-button>
+    <b-button v-on:click="groupCollapsed()" variant="success">.groupCollapsed()</b-button>
+    <b-button v-on:click="groupEnd()" variant="warning">.groupEnd()</b-button>
 </div>
 </template>
 
@@ -34,6 +37,21 @@ export default {
             EventBus.$emit("notification", {
                 type: "assert",
                 message: "Assertion failed."
+            });
+        },
+        group() {
+            EventBus.$emit("notification", {
+                type: "group"
+            });
+        },
+        groupCollapsed() {
+            EventBus.$emit("notification", {
+                type: "groupCollapsed"
+            });
+        },
+        groupEnd() {
+            EventBus.$emit("notification", {
+                type: "groupEnd"
             });
         }
     }
