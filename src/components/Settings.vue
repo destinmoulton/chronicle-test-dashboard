@@ -59,7 +59,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import ChronicleConsole from "../../../chronicle-console/index";
+import ChronicleConsole from "../../../chronicle-console/dist/chronicleconsole";
 
 import METHODS from "../constants/methods.constants";
 
