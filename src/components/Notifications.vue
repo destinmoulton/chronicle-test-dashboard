@@ -37,6 +37,27 @@ export default {
                         );
                         console.error(consoleMessage, data);
                         break;
+                    case "group":
+                        this.$toasted.info(
+                            ".group() called",
+                            NOTIFICATION_CONFIG
+                        );
+                        console.group();
+                        break;
+                    case "groupCollapsed":
+                        this.$toasted.info(
+                            ".groupCollapsed() called",
+                            NOTIFICATION_CONFIG
+                        );
+                        console.groupCollapsed();
+                        break;
+                    case "groupEnd":
+                        this.$toasted.info(
+                            ".groupEnd() called",
+                            NOTIFICATION_CONFIG
+                        );
+                        console.groupEnd();
+                        break;
                     case "info":
                         this.$toasted.info(
                             notificationMessage,
