@@ -23,6 +23,13 @@ export default {
                         );
                         console.action(consoleMessage, data);
                         break;
+                    case "assert":
+                        this.$toasted.info(
+                            notificationMessage,
+                            NOTIFICATION_CONFIG
+                        );
+                        console.assert(false, consoleMessage, data);
+                        break;
                     case "error":
                         this.$toasted.error(
                             notificationMessage,
