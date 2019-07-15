@@ -1,41 +1,41 @@
 {
-  "name": "chronicle-test-dashboard",
-  "description": "Website dashboard for testing Chronicle Console and API.",
-  "version": "1.0.0",
-  "author": "Destin Moulton <destin.moulton@gmail.com>",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
-  },
-  "dependencies": {
-    "vue": "^2.5.11"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "bootstrap-vue": "^2.0.0-rc.1",
-    "cross-env": "^5.0.5",
-    "css-loader": "^0.28.7",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-vue": "^4.2.2",
-    "file-loader": "^1.1.4",
-    "lodash": "^4.17.5",
-    "vue-json-pretty": "^1.3.4",
-    "vue-loader": "^13.0.5",
-    "vue-router": "^3.0.1",
-    "vue-template-compiler": "^2.4.4",
-    "vue-toasted": "^1.1.24",
-    "vuex": "^3.0.1",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
-  }
+    "name": "chronicle-test-dashboard",
+    "description": "Website dashboard for testing Chronicle Console and API.",
+    "version": "1.0.0",
+    "author": "Destin Moulton <destin.moulton@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+        "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    },
+    "dependencies": {
+        "babel-loader": "^8.0.6",
+        "vue": "^2.5.11"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.5.4",
+        "@babel/preset-env": "^7.5.4",
+        "bootstrap-vue": "^2.0.0-rc.1",
+        "cross-env": "^5.0.5",
+        "css-loader": "^3.0.0",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-vue": "^5.2.3",
+        "file-loader": "^4.0.0",
+        "lodash": "^4.17.5",
+        "vue-json-pretty": "^1.3.4",
+        "vue-loader": "^15.7.0",
+        "vue-router": "^3.0.1",
+        "vue-template-compiler": "^2.4.4",
+        "vue-toasted": "^1.1.24",
+        "vuex": "^3.0.1",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-server": "^3.7.2"
+    }
 }
