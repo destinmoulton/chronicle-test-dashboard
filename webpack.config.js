@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
     entry: "./src/main.js",
@@ -41,6 +42,7 @@ module.exports = {
             }
         ]
     },
+    plugins: [new VueLoaderPlugin()],
     externals: {
         lodash: "_",
         vuex: "Vuex",
